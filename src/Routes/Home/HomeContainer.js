@@ -27,6 +27,7 @@ function HomeApi() {
         } = await moviesApi.popular();
 
         setState({
+          ...state,
           nowPlaying,
           upcoming,
           popular,
@@ -37,6 +38,7 @@ function HomeApi() {
       getMovieInfo();
     } catch {
       setState({
+        ...state,
         error: "Can't find moives information",
         loading: false
       });
