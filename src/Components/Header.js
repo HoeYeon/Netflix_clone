@@ -36,6 +36,8 @@ const SLink = styled(Link)`
   justify-content: center;
 `;
 
+// withRouter 덕분에 props를 전달 할 수 있음(컴포넌트에서 Router를 조작가능)
+// Router는 기본적으로 props를 받을 수 있음 --> Router에서 props 출력해보면 항상 나오는거 확인가능
 export default withRouter(({ location: { pathname } }) => (
   <Header>
     <List>
