@@ -44,7 +44,6 @@ function GetTV() {
   }, []);
 
   const { topRated, popular, airingTday, loading, error } = state;
-  console.log(state);
   return (
     <TVPresenter
       topRated={topRated}

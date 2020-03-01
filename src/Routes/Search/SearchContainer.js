@@ -11,11 +11,21 @@ function GetSearch() {
     error: null
   };
   const [state, setState] = useState(defaultState);
-  const handleSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
     const { searchTerm } = state;
     if (searchTerm !== "") {
       searchByTerm();
     }
+  };
+  const updateTerm = event => {
+    const {
+      target: { value }
+    } = event;
+    setState({
+      ...state,
+      searchTerm: value
+    });
   };
 
   const searchByTerm = async () => {
@@ -31,12 +41,11 @@ function GetSearch() {
       setState({
         ...state,
         movieResults,
-        tvResults
+        tvResults,
+        loading: false
       });
     } catch {
-      setState({ ...state, error: "Can't find results." });
-    } finally {
-      setState({ ...state, loading: false });
+      setState({ ...state, error: "Can't find results.", loading: false });
     }
   };
   const { movieResults, tvResults, searchTerm, loading, error } = state;
@@ -49,6 +58,7 @@ function GetSearch() {
       loading={loading}
       error={error}
       handleSubmit={handleSubmit}
+      updateTerm={updateTerm}
     />
   );
 }

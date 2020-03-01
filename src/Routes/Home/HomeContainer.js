@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import HomePresenter from "./HomePresenter";
 import { moviesApi } from "api";
 
-function HomeApi() {
+const HomeContainer = () => {
   const defaultState = {
     nowPlaying: null,
     upcoming: null,
@@ -44,20 +44,19 @@ function HomeApi() {
       });
     }
   }, []);
-
   const { nowPlaying, upcoming, popular, error, loading } = state;
   return (
-    <HomePresenter>
+    <HomePresenter
       nowPlaying={nowPlaying}
       upcoming={upcoming}
       popular={popular}
       error={error}
       loading={loading}
-    </HomePresenter>
+    ></HomePresenter>
   );
-}
+};
 
-export default HomeApi;
+export default HomeContainer;
 // export default class extends React.Component {
 //   state = {
 //     nowPlaying: null,

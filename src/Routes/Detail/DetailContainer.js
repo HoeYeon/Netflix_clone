@@ -37,7 +37,6 @@ function GetDetail(props) {
         } else {
           ({ data: result } = await tvApi.showDetail(parseId));
         }
-        console.log(result);
         setState({ ...state, loading: false, result });
       };
       getProps();
@@ -47,7 +46,6 @@ function GetDetail(props) {
   }, []);
 
   const { result, error, loading } = state;
-  console.log(state);
   return <DetailPresenter result={result} error={error} loading={loading} />;
 }
 
