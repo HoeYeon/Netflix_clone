@@ -31,6 +31,7 @@ const ImageContainer = styled.div`
     ${Rating} {
       opacity: 1;
     }
+    border: 2px solid rgba(120, 224, 143, 1);
   }
 `;
 
