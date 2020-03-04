@@ -19,12 +19,31 @@ export default () => (
     <div>
       <Header></Header>
       <Switch>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/tv" component={TV}></Route>
-        <Route path="/search" component={Search}></Route>
-        <Route path="/movie/:id" component={Detail}></Route>
-        <Route path="show/:id" component={Detail}></Route>
-        <Redirect from="*" to="/"></Redirect>
+        <Route
+          path="https://hoeyeon.github.io/Netflix_clone/"
+          exact
+          component={Home}
+        ></Route>
+        <Route
+          path="https://hoeyeon.github.io/Netflix_clone/tv"
+          component={TV}
+        ></Route>
+        <Route
+          path="https://hoeyeon.github.io/Netflix_clone/search"
+          component={Search}
+        ></Route>
+        <Route
+          path="https://hoeyeon.github.io/Netflix_clone/movie/:id"
+          component={Detail}
+        ></Route>
+        <Route
+          path="https://hoeyeon.github.io/Netflix_clone/show/:id"
+          component={Detail}
+        ></Route>
+        <Redirect
+          from="*"
+          to="https://hoeyeon.github.io/Netflix_clone/"
+        ></Redirect>
       </Switch>
     </div>
   </Router>
