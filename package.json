@@ -29,7 +29,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://hoeyeon.github.io/Netflix_clone",
+  "homepage": "https://quizzical-elion-3100b9.netlify.com/",
   "browserslist": {
     "production": [
       ">0.2%",
