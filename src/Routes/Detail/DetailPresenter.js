@@ -70,8 +70,8 @@ const Overview = styled.p`
 const Trailer = styled.iframe`
   margin: 20px;
   padding-top: 20px;
-  width: 700px;
-  height: 400px;
+  width: 80%;
+  height: 450px;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
