@@ -67,6 +67,13 @@ const Overview = styled.p`
   width: 70%;
 `;
 
+const Trailer = styled.iframe`
+  margin: 20px;
+  padding-top: 20px;
+  width: 700px;
+  height: 400px;
+`;
+
 const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
     <>
@@ -108,7 +115,10 @@ const DetailPresenter = ({ result, loading, error }) =>
             </Item>
             <Divider>•</Divider>
             <Item>
-              {result.runtime ? result.runtime : result.episode_run_time[0]} min
+              {result.runtime || result.runtime === 0
+                ? result.runtime
+                : result.episode_run_time[0]}{" "}
+              min
             </Item>
             <Divider>•</Divider>
             <Item>
@@ -122,6 +132,13 @@ const DetailPresenter = ({ result, loading, error }) =>
             </Item>
           </ItemContainer>
           <Overview>{result.overview}</Overview>
+          <Trailer
+            src={
+              result.videos
+                ? `https://www.youtube.com/embed/${result.videos.results[0].key}`
+                : `https://www.youtube.com/embed/5haSQXYoVwg`
+            }
+          ></Trailer>
         </Data>
       </Content>
     </Container>

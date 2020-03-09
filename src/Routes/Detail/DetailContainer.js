@@ -46,6 +46,7 @@ function GetDetail(props) {
   }, []);
 
   const { result, error, loading } = state;
+  console.log(state);
   return <DetailPresenter result={result} error={error} loading={loading} />;
 }
 
