@@ -68,10 +68,22 @@ const Overview = styled.p`
 `;
 
 const Trailer = styled.iframe`
-  margin: 20px;
+  margin: 10px;
   padding-top: 20px;
-  width: 80%;
-  height: 450px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 85%;
+`;
+const MovieBox = styled.div`
+  position: relative;
+  width: 85%;
+  height: 85%;
+`;
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -94,52 +106,56 @@ const DetailPresenter = ({ result, loading, error }) =>
         bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
       />
       <Content>
-        <Cover
-          bgImage={
-            result.poster_path
-              ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : "" //require(" ") image 동적으로 불러오기
-          }
-        />
-        <Data>
-          <Title>
-            {result.original_title
-              ? result.original_title
-              : result.original_name}
-          </Title>
-          <ItemContainer>
-            <Item>
-              {result.release_date
-                ? result.release_date.substring(0, 4)
-                : result.first_air_date.substring(0, 4)}
-            </Item>
-            <Divider>•</Divider>
-            <Item>
-              {result.runtime || result.runtime === 0
-                ? result.runtime
-                : result.episode_run_time[0]}{" "}
-              min
-            </Item>
-            <Divider>•</Divider>
-            <Item>
-              {/* 장르마다 한개씩 뽑아오는건데 마지막 요소만 뒤에 /를 빼고 출력 +++ map은 index를 가지고 올 수 있음 */}
-              {result.genres &&
-                result.genres.map((genre, index) =>
-                  index === result.genres.length - 1
-                    ? genre.name
-                    : `${genre.name} / `
-                )}
-            </Item>
-          </ItemContainer>
-          <Overview>{result.overview}</Overview>
-          <Trailer
-            src={
-              result.videos
-                ? `https://www.youtube.com/embed/${result.videos.results[0].key}`
-                : `https://www.youtube.com/embed/5haSQXYoVwg`
+        <Wrapper>
+          <Cover
+            bgImage={
+              result.poster_path
+                ? `https://image.tmdb.org/t/p/original${result.poster_path}`
+                : "" //require(" ") image 동적으로 불러오기
             }
-          ></Trailer>
-        </Data>
+          />
+          <Data>
+            <Title>
+              {result.original_title
+                ? result.original_title
+                : result.original_name}
+            </Title>
+            <ItemContainer>
+              <Item>
+                {result.release_date
+                  ? result.release_date.substring(0, 4)
+                  : result.first_air_date.substring(0, 4)}
+              </Item>
+              <Divider>•</Divider>
+              <Item>
+                {result.runtime || result.runtime === 0
+                  ? result.runtime
+                  : result.episode_run_time[0]}{" "}
+                min
+              </Item>
+              <Divider>•</Divider>
+              <Item>
+                {/* 장르마다 한개씩 뽑아오는건데 마지막 요소만 뒤에 /를 빼고 출력 +++ map은 index를 가지고 올 수 있음 */}
+                {result.genres &&
+                  result.genres.map((genre, index) =>
+                    index === result.genres.length - 1
+                      ? genre.name
+                      : `${genre.name} / `
+                  )}
+              </Item>
+            </ItemContainer>
+            <Overview>{result.overview}</Overview>
+            <MovieBox>
+              <Trailer
+                src={
+                  result.videos
+                    ? `https://www.youtube.com/embed/${result.videos.results[0].key}`
+                    : `https://www.youtube.com/embed/5haSQXYoVwg`
+                }
+              ></Trailer>
+            </MovieBox>
+          </Data>
+        </Wrapper>
       </Content>
     </Container>
   );
