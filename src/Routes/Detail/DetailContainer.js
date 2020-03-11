@@ -47,7 +47,14 @@ function GetDetail(props) {
 
   const { result, error, loading } = state;
   console.log(state);
-  return <DetailPresenter result={result} error={error} loading={loading} />;
+  return (
+    <DetailPresenter
+      result={result}
+      error={error}
+      loading={loading}
+      tab="overview"
+    />
+  );
 }
 
 export default GetDetail;
