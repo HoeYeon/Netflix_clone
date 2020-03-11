@@ -9,6 +9,7 @@ Learning React and ES6 by building a Movie Discovery App
 - [x] Search
 - [x] Detail
 - [ ] Star with rate
+- [x] Info Tab
 
 ## API Verbs
 
@@ -23,4 +24,4 @@ Learning React and ES6 by building a Movie Discovery App
 
 ## Video
 
-- [ ] Link Video
+- [x] Link Video
