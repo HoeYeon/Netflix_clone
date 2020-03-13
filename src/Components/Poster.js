@@ -32,6 +32,7 @@ const ImageContainer = styled.div`
       opacity: 1;
     }
     border: 2px solid rgba(120, 224, 143, 1);
+    margin-bottom: 0px;
   }
 `;
 
