@@ -60,28 +60,6 @@ const Divider = styled.span`
   margin: 0 10px;
 `;
 
-const Overview = styled.p`
-  font-size: 17px;
-  opacity: 0.9;
-  line-height: 1.5;
-  width: 70%;
-`;
-
-const Trailer = styled.iframe`
-  margin: 10px;
-  padding-top: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 85%;
-  height: 85%;
-`;
-const MovieBox = styled.div`
-  position: relative;
-  width: 85%;
-  height: 85%;
-`;
-
 const DetailPresenter = ({ result, loading, error, tab }) =>
   loading ? (
     <>
@@ -140,17 +118,8 @@ const DetailPresenter = ({ result, loading, error, tab }) =>
                 )}
             </Item>
           </ItemContainer>
-          <InfoTab></InfoTab>
-          <Overview>{result.overview}</Overview>
-          <MovieBox>
-            <Trailer
-              src={
-                result.videos
-                  ? `https://www.youtube.com/embed/${result.videos.results[0].key}`
-                  : `https://www.youtube.com/embed/5haSQXYoVwg`
-              }
-            ></Trailer>
-          </MovieBox>
+          {console.log("result: ", result)}
+          <InfoTab result={result}></InfoTab>
         </Data>
       </Content>
     </Container>
