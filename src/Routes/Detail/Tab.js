@@ -12,6 +12,9 @@ const Tab = styled.div`
   font-size: 18px;
   color: ${props => (props.current ? "#dfe6e9" : "#2d3436")};
   background-color: ${props => (props.current ? "#2d3436" : "#dfe6e9")};
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const Overview = styled.p`
   padding-top: 20px;
