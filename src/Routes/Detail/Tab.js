@@ -17,12 +17,10 @@ const Tab = styled.div`
   }
 `;
 const Overview = styled.p`
-  padding-top: 20px;
   font-size: 17px;
   opacity: 0.9;
   line-height: 1.5;
   width: 70%;
-  overflow: hidden;
 `;
 
 const Trailer = styled.iframe`
@@ -40,11 +38,15 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 600px) {
     width: 100vw;
     position: fixed;
-    left: 50px;
+    left: 23px;
     top: 35%;
+    height: 50%;
+    padding: 0px;
+    margin-top: 3em;
   }
   overflow: auto;
   height: 100%;
+  padding-top: 20px;
 `;
 
 const InfoTab = ({ result }) => {

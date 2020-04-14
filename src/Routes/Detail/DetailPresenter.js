@@ -5,6 +5,9 @@ import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 import InfoTab from "./Tab";
 const Container = styled.div`
+  @media only screen and (max-width: 600px) {
+    padding: 20px 0px 0px 20px;
+  }
   height: calc(100vh - 50px);
   width: 100%;
   position: relative;
@@ -36,7 +39,7 @@ const Content = styled.div`
 const Cover = styled.div`
   @media only screen and (max-width: 600px) {
     width: 30%;
-    height: 25%;
+    height: 30%;
   }
   width: 30%;
   background-image: url(${props => props.bgImage});
