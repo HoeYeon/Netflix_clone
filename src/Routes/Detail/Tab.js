@@ -22,6 +22,7 @@ const Overview = styled.p`
   opacity: 0.9;
   line-height: 1.5;
   width: 70%;
+  overflow: hidden;
 `;
 
 const Trailer = styled.iframe`
@@ -35,12 +36,22 @@ const MovieBox = styled.div`
   width: 100px;
   height: 100px;
 `;
+const Wrapper = styled.div`
+  @media only screen and (max-width: 600px) {
+    width: 100vw;
+    position: fixed;
+    left: 50px;
+    top: 35%;
+  }
+  overflow: auto;
+  height: 100%;
+`;
 
 const InfoTab = ({ result }) => {
   console.log("result in tab", result);
   const [tab, setTab] = useState("overview");
   return (
-    <div>
+    <div style={{ height: "65%" }}>
       <TabList>
         <Tab
           current={tab === "overview"}
@@ -59,17 +70,19 @@ const InfoTab = ({ result }) => {
           Trailer
         </Tab>
       </TabList>
-      {tab === "overview" ? (
-        <Overview>{result.overview}</Overview>
-      ) : (
-        <Trailer
-          src={
-            result.videos
-              ? `https://www.youtube.com/embed/${result.videos.results[0].key}`
-              : `https://www.youtube.com/embed/5haSQXYoVwg`
-          }
-        ></Trailer>
-      )}
+      <Wrapper>
+        {tab === "overview" ? (
+          <Overview>{result.overview}</Overview>
+        ) : (
+          <Trailer
+            src={
+              result.videos
+                ? `https://www.youtube.com/embed/${result.videos.results[0].key}`
+                : `https://www.youtube.com/embed/5haSQXYoVwg`
+            }
+          ></Trailer>
+        )}
+      </Wrapper>
     </div>
   );
 };

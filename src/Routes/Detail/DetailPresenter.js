@@ -34,6 +34,10 @@ const Content = styled.div`
 `;
 
 const Cover = styled.div`
+  @media only screen and (max-width: 600px) {
+    width: 30%;
+    height: 25%;
+  }
   width: 30%;
   background-image: url(${props => props.bgImage});
   background-position: center center;
