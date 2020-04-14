@@ -40,6 +40,7 @@ const Cover = styled.div`
   @media only screen and (max-width: 600px) {
     width: 30%;
     height: 30%;
+    max-height: 180px;
   }
   width: 30%;
   background-image: url(${props => props.bgImage});
@@ -54,7 +55,7 @@ const Data = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 32px;
+  font-size: 20px;
 `;
 
 const ItemContainer = styled.div`

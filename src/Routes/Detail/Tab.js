@@ -37,12 +37,11 @@ const MovieBox = styled.div`
 const Wrapper = styled.div`
   @media only screen and (max-width: 600px) {
     width: 100vw;
-    position: fixed;
-    left: 23px;
-    top: 35%;
+    position: absolute;
+    left: 0px;
     height: 50%;
     padding: 0px;
-    margin-top: 3em;
+    margin-top: 5.5em;
   }
   overflow: auto;
   height: 100%;
